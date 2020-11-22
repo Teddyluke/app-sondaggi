@@ -24,9 +24,28 @@
                 <div class="card-body">
                   <ul class="list-group">
                     @foreach ($question->answers as $answer)
-                      <li class="list-group-item">{{$answer->answer}}</li>
+                      <li class="list-group-item d-flex justify-content-between">
+                        <div>
+                          {{$answer->answer}}
+                        </div>
+
+                         @if ($question->responses->count())
+                           <div>
+                             {{ intval(($answer->responses->count() * 100) / ($question->responses->count())) }}%
+                           </div>
+                         @endif
+                      </li>
                     @endforeach
                   </ul>
+                </div>
+
+                <div class="card-footer">
+                  <form action="/questionnaires/{{ $questionnaire->id }}/questions/{{ $question->id }}" method="post">
+                    @method('DELETE')
+                    @csrf
+
+                    <button type="submit" name="button" class="btn btn-sm btn-outline-danger">Cancella domanda</button>
+                  </form>
                 </div>
               </div>
             @endforeach

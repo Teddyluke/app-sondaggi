@@ -26,54 +26,54 @@
                     <div class="form-group">
                       <fieldset>
                         <legend>Scelte</legend>
-                        <small id="choicesHelp" class="form-text text-muted">Inserisci le possibili scelte</small>
+                        <small id="choicesHelp" class="form-text text-muted mb-4">Inserisci le possibili scelte</small>
+                        <button type="button" class="btn btn-primary btn-sm" id="addAnswerBtn">Aggiungi Scelta
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm" id="removeAnswerBtn">Rimuovi ultima Scelta
+                        </button>
+                        <div class="answerContainer mt-4">
+                          <div>
+                            
+                            <div class="form-group">
+                               <label for="answer1">Scelta 1</label>
+                               <input name="answers[][answer]" type="text" class="form-control" id="answer1" aria-describedby="choicesHelp" placeholder="inserisci Scelta 1" value="{{old('answers.0.answer')}}">
+                               <small id="answer1Help" class="form-text text-muted">Inserisci una Scelta.</small>
 
-                        <div>
+                               @error ('answers.0.answer')
+                                 <small class="text-danger">{{ $message }}</small>
+                               @enderror
+                            </div>
 
-                          <div class="form-group">
-                             <label for="answer1">Scelta 1</label>
-                             <input name="answers[][answer]" type="text" class="form-control" id="answer1" aria-describedby="choicesHelp" placeholder="inserisci Scelta 1" value="{{old('answers.0.answer')}}">
-                             <small id="answer1Help" class="form-text text-muted">Inserisci una Scelta.</small>
-
-                             @error ('answers.0.answer')
-                               <small class="text-danger">{{ $message }}</small>
-                             @enderror
                           </div>
+                          <div>
 
-                        </div>
+                            <div class="form-group">
+                               <label for="answer2">Scelta 2</label>
+                               <input name="answers[][answer]" type="text" class="form-control" id="answer2" aria-describedby="choicesHelp" placeholder="inserisci Scelta 2" value="{{old('answers.1.answer')}}">
+                               <small id="answer2Help" class="form-text text-muted">Inserisci una Scelta.</small>
 
-                        <div>
+                               @error ('answers.1.answer')
+                                 <small class="text-danger">{{ $message }}</small>
+                               @enderror
+                            </div>
 
-                          <div class="form-group">
-                             <label for="answer2">Scelta 2</label>
-                             <input name="answers[][answer]" type="text" class="form-control" id="answer2" aria-describedby="choicesHelp" placeholder="inserisci Scelta 2" value="{{old('answers.1.answer')}}">
-                             <small id="answer2Help" class="form-text text-muted">Inserisci una Scelta.</small>
-
-                             @error ('answers.1.answer')
-                               <small class="text-danger">{{ $message }}</small>
-                             @enderror
                           </div>
+                          <div>
 
-                        </div>
+                            <div class="form-group">
+                               <label for="answer3">Scelta 3</label>
+                               <input name="answers[][answer]" type="text" class="form-control" id="answer3" aria-describedby="choicesHelp" placeholder="inserisci Scelta 3" value="{{old('answers.2.answer')}}">
+                               <small id="answer3Help" class="form-text text-muted">Inserisci una Scelta.</small>
 
-                        <div>
+                               @error ('answers.2.answer')
+                                 <small class="text-danger">{{ $message }}</small>
+                               @enderror
+                            </div>
 
-                          <div class="form-group">
-                             <label for="answer3">Scelta 3</label>
-                             <input name="answers[][answer]" type="text" class="form-control" id="answer3" aria-describedby="choicesHelp" placeholder="inserisci Scelta 3" value="{{old('answers.2.answer')}}">
-                             <small id="answer3Help" class="form-text text-muted">Inserisci una Scelta.</small>
-
-                             @error ('answers.2.answer')
-                               <small class="text-danger">{{ $message }}</small>
-                             @enderror
                           </div>
-
                         </div>
-
-
                       </fieldset>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Aggiungi Domande</button>
                   </form>
                 </div>

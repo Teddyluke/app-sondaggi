@@ -1,32 +1,54 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
-window.Vue = require('vue');
+window.$ = require('jquery');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+var Handlebars = require('handlebars');
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+function addChoicesListener() {
 
-const app = new Vue({
-    el: '#app',
-});
+  var addAnswerBTN = $('#addAnswerBtn');
+  var removeAnswerBTN = $('#removeAnswerBtn');
+  var num = 4;
+
+  addAnswerBTN.click(function () {
+    addChoices(num);
+    num++;
+  });
+
+  removeAnswerBTN.click(function () {
+    var form = $('.form-group');
+    form.last().remove();
+    num--;
+  })
+}
+
+
+function addChoices(choiceNumber) {
+  var source = document.getElementById("answer-template").innerHTML;
+  var compiled = Handlebars.compile(source);
+  var target = $('.answerContainer');
+  var answer = {
+
+     'answerN' : 'answer' + choiceNumber,
+     'n' : choiceNumber,
+     'nMinus' : choiceNumber -1,
+     'answer-n' : 'Scelta' + ' ' + choiceNumber
+   };
+
+  var targetHTML = compiled(answer);
+  target.append(targetHTML);
+
+}
+
+
+
+
+
+
+function init() {
+addChoicesListener()
+}
+
+$(document).ready(init);

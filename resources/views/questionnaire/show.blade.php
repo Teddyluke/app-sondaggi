@@ -10,7 +10,7 @@
                 <div class="card-body">
                   <a class="btn btn-primary" href="/questionnaires/{{ $questionnaire->id }}/questions/create">Nuova domanda</a>
                   <a class="btn btn-primary" href="/surveys/{{ $questionnaire->id }}-{{ Str::slug($questionnaire->title) }}">Compila il questionario</a>
-
+                  <a class="btn btn-primary" href="/questionnaires/{{$questionnaire->id}}/stats">Mostra grafico statistiche</a>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
                     @foreach ($question->answers as $answer)
                       <li class="list-group-item d-flex justify-content-between">
                         <div>
-                          {{$answer->answer}}
+                          {{$answer -> answer}}
                         </div>
 
                          @if ($question->responses->count())

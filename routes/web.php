@@ -15,6 +15,8 @@ Route::get('/questionnaires/create', 'QuestionnaireController@create');
 Route::post('/questionnaires', 'QuestionnaireController@store');
 Route::get('/questionnaires/{questionnaire}', 'QuestionnaireController@show');
 Route::get('/questionnaires/{questionnaire}/stats', 'QuestionnaireController@showStats');
+Route::get('/questionnaires/destroy/{questionnaire}', 'QuestionnaireController@destroy');
+
 
 
 Route::get('/questionnaires/{questionnaire}/questions/create', 'QuestionController@create');

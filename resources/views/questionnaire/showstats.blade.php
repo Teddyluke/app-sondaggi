@@ -9,11 +9,13 @@
                 <div class="d-flex p-2 justify-content-center">
                   <h1> {{$questionnaire -> title}} </h1>
                 </div>
-                <div class="d-flex col-md-12 p-2 justify-content-around flex-wrap">
+                <div class="d-flex col-md-12 justify-content-around flex-wrap">
 
                 @foreach ($questionnaire -> questions as $question)
-                  <canvas id="{{$question -> id}}" max-width="300" max-height="300" class="col-md-6">
-                  </canvas>
+                  <div class="col-md-6 p-0">
+                    <canvas id="{{$question -> id}}">
+                    </canvas>
+                  </div>
 
                   <script>
                   var ctx = document.getElementById('{{$question -> id}}').getContext('2d');
@@ -47,6 +49,20 @@
                               @endforeach ]
                           }]
                       },
+                      options: {
+                        layout: {
+                         padding: {
+                          left: 10
+                            }
+                          },
+                        scales: {
+                          yAxes: [{
+                            ticks: {
+                              beginAtZero: true
+                            }
+                          }]
+                        }
+                      }
                   });
                   </script>
 
@@ -76,5 +92,6 @@
           </div>
       </div>
     @endif
+    <a href="{{'/home'}}" class="btn btn-secondary btn-lg btn-block">Torna ai tuoi questionari</a>
   @endauth
 @endsection

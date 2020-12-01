@@ -8,7 +8,7 @@
                 <div class="card-header">Crea nuova domanda</div>
 
                 <div class="card-body">
-                  <form  action="/questionnaires/{{ $questionnaire -> id}}/questions" method="post">
+                  <form name="questionForm" action="/questionnaires/{{ $questionnaire -> id}}/questions" method="post">
 
                     @csrf
                     @method('POST')
@@ -19,7 +19,7 @@
                        <small id="questionHelp" class="form-text text-muted">Inserisci una domanda.</small>
 
                        @error ('question.question')
-                         <smallc class="text-danger">{{ $message }}</small>
+                         <smallc class="text-danger">Il campo domanda non può essere inferiore ai cinque caratteri.</small>
                        @enderror
                     </div>
 
@@ -33,10 +33,10 @@
                         </button>
                         <div class="answerContainer mt-4">
                           <div>
-                            
+
                             <div class="form-group">
                                <label for="answer1">Scelta 1</label>
-                               <input name="answers[][answer]" type="text" class="form-control" id="answer1" aria-describedby="choicesHelp" placeholder="inserisci Scelta 1" value="{{old('answers.0.answer')}}">
+                               <input name="answers[][answer]" type="text" class="form-control answer" id="answer1" aria-describedby="choicesHelp" placeholder="inserisci Scelta 1" value="{{old('answers.0.answer')}}">
                                <small id="answer1Help" class="form-text text-muted">Inserisci una Scelta.</small>
 
                                @error ('answers.0.answer')
@@ -49,7 +49,7 @@
 
                             <div class="form-group">
                                <label for="answer2">Scelta 2</label>
-                               <input name="answers[][answer]" type="text" class="form-control" id="answer2" aria-describedby="choicesHelp" placeholder="inserisci Scelta 2" value="{{old('answers.1.answer')}}">
+                               <input name="answers[][answer]" type="text" class="form-control answer" id="answer2" aria-describedby="choicesHelp" placeholder="inserisci Scelta 2" value="{{old('answers.1.answer')}}">
                                <small id="answer2Help" class="form-text text-muted">Inserisci una Scelta.</small>
 
                                @error ('answers.1.answer')
@@ -62,7 +62,7 @@
 
                             <div class="form-group">
                                <label for="answer3">Scelta 3</label>
-                               <input name="answers[][answer]" type="text" class="form-control" id="answer3" aria-describedby="choicesHelp" placeholder="inserisci Scelta 3" value="{{old('answers.2.answer')}}">
+                               <input name="answers[][answer]" type="text" class="form-control answer" id="answer3" aria-describedby="choicesHelp" placeholder="inserisci Scelta 3" value="{{old('answers.2.answer')}}">
                                <small id="answer3Help" class="form-text text-muted">Inserisci una Scelta.</small>
 
                                @error ('answers.2.answer')
@@ -74,7 +74,7 @@
                         </div>
                       </fieldset>
                     </div>
-                    <button type="submit" class="btn btn-primary">Aggiungi Domande</button>
+                    <button type="submit" id="addQuestions" class="btn btn-primary" disabled>Aggiungi Domande</button>
                   </form>
                 </div>
             </div>

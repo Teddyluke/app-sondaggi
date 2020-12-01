@@ -17,7 +17,7 @@
 
         <div class="form-group">
            <label for="@{{answerN}}">@{{answer-n}}</label>
-           <input name="answers[][answer]" type="text" class="form-control" id="@{{answerN}}" aria-describedby="choicesHelp" placeholder="inserisci Scelta @{{n}}"
+           <input name="answers[][answer]" type="text" class="form-control answer" id="@{{answerN}}" aria-describedby="choicesHelp" placeholder="inserisci Scelta @{{n}}">
            <small id="@{{answerN}}Help" class="form-text text-muted">Inserisci una Scelta.</small>
 
            @error ('answers.@{{nMinus}}.answer')

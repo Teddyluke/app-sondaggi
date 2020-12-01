@@ -58,4 +58,14 @@ class QuestionnaireController extends Controller
     return view('questionnaire.showstats', compact('questionnaire'));
 
   }
+
+  public function destroy(Questionnaire $questionnaire)
+  {
+
+    $questionnaire->delete();
+
+    return redirect('home');
+
+  }
+
 }
